@@ -849,7 +849,24 @@
             </div>
           </div>
         </div>
+<!-- HISTORICAL SENSOR CHART -->
+<div class="chart-box fade-in">
 
+  <div class="chart-header">
+    <h2>Historical Sensor Trends</h2>
+
+    <span style="font-family:var(--mono);font-size:0.65rem;color:var(--muted);">
+      Last 7 operational cycles
+    </span>
+  </div>
+
+  <div class="chart-body">
+
+    <canvas id="historyChart" height="120"></canvas>
+
+  </div>
+
+</div>
       </div>
     </div>
   </main>
@@ -864,6 +881,83 @@
   }
   tick(); setInterval(tick, 1000);
 </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<script>
+
+const historyCtx = document.getElementById('historyChart');
+
+new Chart(historyCtx, {
+
+    type: 'line',
+
+    data: {
+
+        labels: [
+            '08:00',
+            '09:00',
+            '10:00',
+            '11:00',
+            '12:00',
+            '13:00',
+            '14:00'
+        ],
+
+        datasets: [
+
+            {
+                label: 'Temperature',
+                data: [62, 64, 66, 70, 68, 72, 75],
+                borderColor: '#00c8ff',
+                tension: 0.4
+            },
+
+            {
+                label: 'Vibration',
+                data: [12, 14, 13, 17, 16, 18, 22],
+                borderColor: '#ffb300',
+                tension: 0.4
+            },
+
+            {
+                label: 'Failure Risk',
+                data: [10, 12, 15, 25, 30, 38, 45],
+                borderColor: '#ff3c5a',
+                tension: 0.4
+            }
+
+        ]
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#c8d8f0'
+                }
+            }
+        },
+
+        scales: {
+
+            x: {
+                ticks: {
+                    color: '#4a607a'
+                }
+            },
+
+            y: {
+                ticks: {
+                    color: '#4a607a'
+                }
+            }
+        }
+    }
+});
+
+</script>
 </body>
 </html>
