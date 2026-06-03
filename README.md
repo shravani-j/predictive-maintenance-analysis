@@ -1,9 +1,6 @@
 # Predictive Maintenance Data Analysis
 
 ## Project Description
-
-This project was created to further improve my understanding of practical data analysis using a predictive maintenance dataset. The dataset contains machine-related operational data and failure information, which helped me explore how patterns and trends can be identified through exploratory data analysis (EDA).
-
 This project mainly focuses on:
 - Understanding the dataset
 - Data preprocessing and cleaning
